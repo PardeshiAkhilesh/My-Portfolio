@@ -3,6 +3,7 @@
 import ScrollyCanvas from '@/components/ScrollyCanvas';
 import Overlay from '@/components/Overlay';
 import Projects from '@/components/Projects';
+import GroupProject from '@/components/GroupProject';
 import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
 import { MagneticButton } from '@/components/nano-banana';
@@ -25,6 +26,7 @@ export default function Home() {
       </div>
       
       <Projects />
+      <GroupProject />
       <Experience />
       <Skills />
     </main>
