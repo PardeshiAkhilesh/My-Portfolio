@@ -1,18 +1,57 @@
 'use client';
+import React from 'react';
 
 import { motion } from 'framer-motion';
 
+import { 
+  SiPython, SiC, SiHtml5, SiFastapi, SiFlask, SiPandas, SiNumpy,
+  SiScikitlearn, SiTensorflow, SiKeras, SiMysql, SiPostgresql, SiMongodb 
+} from 'react-icons/si';
+import { 
+  FaBug, FaChartLine, FaLayerGroup, FaNetworkWired, FaLanguage, 
+  FaDatabase, FaRobot 
+} from 'react-icons/fa';
+import { TbMathFunction, TbCode } from 'react-icons/tb';
+
 const row1 = [
-  'Python', 'C', 'HTML', 'FastAPI', 'Flask', 'OOP', 'Exception Handling', 
-  'Regression', 'Classification', 'ANN', 'CNN', 'RNN', 'LSTM', 'Keras', 'Pandas', 'NumPy'
+  { name: 'Python', icon: <SiPython className="w-5 h-5 text-blue-400" /> },
+  { name: 'C', icon: <SiC className="w-5 h-5 text-blue-500" /> },
+  { name: 'HTML', icon: <SiHtml5 className="w-5 h-5 text-orange-500" /> },
+  { name: 'FastAPI', icon: <SiFastapi className="w-5 h-5 text-teal-400" /> },
+  { name: 'Flask', icon: <SiFlask className="w-5 h-5 text-white" /> },
+  { name: 'OOP', icon: <TbCode className="w-5 h-5 text-gray-400" /> },
+  { name: 'Exception Handling', icon: <FaBug className="w-5 h-5 text-red-400" /> },
+  { name: 'Regression', icon: <FaChartLine className="w-5 h-5 text-green-400" /> },
+  { name: 'Classification', icon: <FaLayerGroup className="w-5 h-5 text-blue-300" /> },
+  { name: 'ANN', icon: <FaNetworkWired className="w-5 h-5 text-purple-400" /> },
+  { name: 'CNN', icon: <FaNetworkWired className="w-5 h-5 text-indigo-400" /> },
+  { name: 'RNN', icon: <FaNetworkWired className="w-5 h-5 text-pink-400" /> },
+  { name: 'LSTM', icon: <FaNetworkWired className="w-5 h-5 text-fuchsia-400" /> },
+  { name: 'Keras', icon: <SiKeras className="w-5 h-5 text-red-500" /> },
+  { name: 'Pandas', icon: <SiPandas className="w-5 h-5 text-blue-800" /> },
+  { name: 'NumPy', icon: <SiNumpy className="w-5 h-5 text-blue-600" /> }
 ];
 
 const row2 = [
-  'BOW', 'TF-IDF', 'Word2Vec', 'Embedding', 'Cosine Similarity', 'RAG', 
-  'Agentic AI', 'LangChain', 'n8n', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'TensorFlow', 'MySQL', 'PostgreSQL', 'MongoDB'
+  { name: 'BOW', icon: <FaLanguage className="w-5 h-5 text-yellow-400" /> },
+  { name: 'TF-IDF', icon: <FaLanguage className="w-5 h-5 text-yellow-500" /> },
+  { name: 'Word2Vec', icon: <FaLanguage className="w-5 h-5 text-yellow-600" /> },
+  { name: 'Embedding', icon: <FaDatabase className="w-5 h-5 text-teal-500" /> },
+  { name: 'Cosine Similarity', icon: <TbMathFunction className="w-5 h-5 text-pink-300" /> },
+  { name: 'RAG', icon: <FaDatabase className="w-5 h-5 text-cyan-400" /> },
+  { name: 'Agentic AI', icon: <FaRobot className="w-5 h-5 text-gray-300" /> },
+  { name: 'LangChain', icon: <FaRobot className="w-5 h-5 text-green-500" /> },
+  { name: 'n8n', icon: <FaRobot className="w-5 h-5 text-orange-400" /> },
+  { name: 'Matplotlib', icon: <FaChartLine className="w-5 h-5 text-blue-400" /> },
+  { name: 'Seaborn', icon: <FaChartLine className="w-5 h-5 text-green-500" /> },
+  { name: 'Scikit-learn', icon: <SiScikitlearn className="w-5 h-5 text-orange-400" /> },
+  { name: 'TensorFlow', icon: <SiTensorflow className="w-5 h-5 text-orange-500" /> },
+  { name: 'MySQL', icon: <SiMysql className="w-5 h-5 text-blue-500" /> },
+  { name: 'PostgreSQL', icon: <SiPostgresql className="w-5 h-5 text-blue-400" /> },
+  { name: 'MongoDB', icon: <SiMongodb className="w-5 h-5 text-green-500" /> }
 ];
 
-const MarqueeRow = ({ items, direction }: { items: string[], direction: 'left' | 'right' }) => {
+const MarqueeRow = ({ items, direction }: { items: { name: string, icon: React.ReactNode }[], direction: 'left' | 'right' }) => {
   return (
     <div 
       className="flex w-full overflow-hidden whitespace-nowrap py-4 relative"
@@ -29,9 +68,10 @@ const MarqueeRow = ({ items, direction }: { items: string[], direction: 'left' |
         {[...items, ...items].map((item, i) => (
           <span 
              key={i}
-             className="px-6 py-3 rounded-full border border-white/20 bg-white/5 text-gray-200 text-lg md:text-xl backdrop-blur-sm cursor-default hover:bg-white/10 transition-colors"
+             className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-white/5 text-gray-200 text-lg md:text-xl backdrop-blur-sm cursor-default hover:bg-white/10 transition-colors"
           >
-            {item}
+            {item.icon}
+            {item.name}
           </span>
         ))}
       </motion.div>
