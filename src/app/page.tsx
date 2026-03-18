@@ -16,16 +16,16 @@ export default function Home() {
       <ScrollyCanvas>
         {(progress) => <Overlay progress={progress} />}
       </ScrollyCanvas>
-      
+
       {/* Scroll indicator with Awwwards-style magnetic button */}
       <div className="absolute top-[85vh] left-1/2 -translate-x-1/2 z-20 pointer-events-auto mix-blend-difference">
-         <MagneticButton>
-            <div className="w-20 h-20 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm cursor-pointer">
-               <ArrowDown className="w-6 h-6 animate-bounce" />
-            </div>
-         </MagneticButton>
+        <MagneticButton>
+          <div className="w-20 h-20 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm cursor-pointer">
+            <ArrowDown className="w-6 h-6 animate-bounce" />
+          </div>
+        </MagneticButton>
       </div>
-      
+
       <Projects />
       <GroupProject />
       <Experience />
